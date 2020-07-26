@@ -4,31 +4,20 @@ function SearchForm(props){
     console.log("from searchform ", props.nameProperty);
     return(
        
-        <form>
+        <form >
   <div className="form-group">
-    <label htmlFor="search">Search:{props.search}</label>
+    <label htmlFor="search">Search By First Name Or Last Name:{props.search}</label>
     <input 
     onChange={props.handleInputChange}
     value={props.search} 
     name="search"
+    
     type="text" 
    className="form-control"
    placeholder="Search for an Employee"
    id="search"
    />
-    <br />
-    <label>Choose FirstName Or Last Name:</label>
-                <select 
-                    value={props.nameProperty}
-                    onChange={props.handleInputChange}
-                    name="nameProperty"
-                >
-                    <option value="firstName">First Name</option>
-                    <option value="lastName">Last Name</option>
-                   
-                </select>
-                <br></br>
-    <span>I have choose {props.nameProperty}</span>
+    
    
   </div>
   

@@ -1,7 +1,7 @@
 import React from "react";
 function EmployeeCard (props){
     
-    // console.log(props);
+     console.log("employeeCard component",props);
 return(
     <div className="row">
         <table className="table">

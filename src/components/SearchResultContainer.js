@@ -3,18 +3,24 @@ import API from '../utils/API';
 import SearchForm from "./SearchForm";
 import EmployeeCard from "./EmployeeCard";
 
+
 class SearchResultContainer extends Component {
     state={
         search: "",
         searchResults:[],
-        nameProperty: ""
+      
         
         
 
     };
     //
     componentDidMount(){
-        API.search()
+        this.biodata();
+       
+      
+    }
+     biodata=()=> {
+        API.searchEmp()
         .then(res=>{
             console.log(res);
             console.log(res.data.results);
@@ -40,17 +46,18 @@ class SearchResultContainer extends Component {
     // when the form is submitted, search the name 
     handleFormSubmit=(event)=>{
         event.preventDefault();
-        const value=event.target.value;
-        const name = event.target.name;
+        // const value=event.target.value;
+        // const name = event.target.name;
         
         // question to ask
-        this.filterEmployees(value);
+        // this.filterEmployees(event.target.value);
         this.setState({
-            [name]:value
+            // [name]:value
+            search: event.target.value
         })
         
         console.log("i am clicked");
-        this.filterEmployees(value);
+        // this.filterEmployees(event.target.value);
         
         this.filterEmployees(this.state.search);
 
@@ -71,29 +78,50 @@ class SearchResultContainer extends Component {
     //filter employee 
     filterEmployees=(searchEmployee)=>{
         console.log("employee search", searchEmployee);
-        var filterResult= this.state.searchResults.filter(employe=>employe.firstName===searchEmployee)
-        this.setState({
-            searchResults: filterResult
-        })
+        var filterResult=""
+         filterResult= this.state.searchResults.filter(employe=>((employe.firstName.toLowerCase()==searchEmployee) || (employe.lastName.toLowerCase()==searchEmployee)))
+        // this.setState({
+        //     searchResults: filterResult
+        // })
+        // this.setState({
+        //     filter: filterResult
+        // })
+        // console.log("filter result", filterResult);
+        if (filterResult != [] ) {
+            this.setState({
+                searchResults: filterResult
+            })
+        } else {
+            this.setState({
+                searchResults: "Search not found"
+            })
+        }
         console.log("filter result", filterResult);
+        console.log("search result", this.searchResults);
+
         
+
     }
+     
    
     
     render() { 
+       
+       
+        
         return ( 
         <div className="container">
            
             <div className="row">
-                <div className="col-md-12">
+                <div className="col-md-12 text-center">
                     <h1>Employee Directory</h1>
 
                 </div>
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-12 ">
                         <SearchForm
                         search={this.state.search}
-                        nameProperty={this.state.nameProperty}
+                        // nameProperty={this.state.nameProperty}
                         handleFormSubmit={this.handleFormSubmit}
                         handleInputChange={this.handleInputChange}
                         />
@@ -108,7 +136,8 @@ class SearchResultContainer extends Component {
             </div>
             <div> 
                 
-               {[...this.state.searchResults].map((item)=>
+
+{[...this.state.searchResults].length>0 ?([...this.state.searchResults].map((item)=>
                    <EmployeeCard
                    picture={item.picture}
                    firstName={item.firstName}
@@ -117,8 +146,13 @@ class SearchResultContainer extends Component {
                    phone={item.phone}
                    key={item.key}
                    
-                   />
-               )}
+                   />)):<h1>Result not found</h1>
+                
+            }
+   
+               
+        
+            
                 
                 
                 
