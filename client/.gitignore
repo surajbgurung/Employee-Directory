@@ -1,4 +1,4 @@
- "proxy": "http://localhost:3001/",# Logs
+# Logs
 logs
 *.log
 npm-debug.log*
