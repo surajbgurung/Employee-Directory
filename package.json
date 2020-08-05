@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "EMPLOYEE-DIRECTORY",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axion": "^0.1.0",
     "axios": "^0.19.2",
+    "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
@@ -32,5 +33,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "start":"node app",
+  "description": "its a employee directory with React.it is breaks into application's UI into components, manage component state, and respond to user events. * User can able to view entire employee directory at once. it would be particularly helpful to be able to filter employees by their first Name or Last Name.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surajbgurung/Employee-Directory.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surajbgurung/Employee-Directory/issues"
+  },
+  "homepage": "https://github.com/surajbgurung/Employee-Directory#readme"
 }
