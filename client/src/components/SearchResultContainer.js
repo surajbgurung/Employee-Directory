@@ -79,7 +79,7 @@ class SearchResultContainer extends Component {
     filterEmployees=(searchEmployee)=>{
         console.log("employee search", searchEmployee);
         var filterResult=""
-         filterResult= this.state.searchResults.filter(employe=>((employe.firstName.toLowerCase()==searchEmployee) || (employe.lastName.toLowerCase()==searchEmployee)))
+        filterResult = this.state.searchResults.filter(employe => ((employe.firstName.toLowerCase() === searchEmployee.toLowerCase()) || (employe.lastName.toLowerCase() === searchEmployee.toLowerCase())))
         // this.setState({
         //     searchResults: filterResult
         // })
