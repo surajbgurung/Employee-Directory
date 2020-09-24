@@ -14,7 +14,19 @@ npm install npm start
 
 ## Demostration
 
-![employee](./employeeDirectory.gif)
+### Landing page
+
+![employee](./image/employee.png)
+
+### User can search their employee with their Last Name or First Name
+
+![employee](./image/searchEmployee.png)
+
+### Full Demo
+
+
+![employee](./image/employeeDirectory.gif)
+
 
 ## Plans for Future Development
 
